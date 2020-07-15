@@ -14,16 +14,9 @@ function VotingPage(props) {
         alasan: ''
     })
 
-    function checkVoter(){
-        Axios.get('/voting/check/' + props.match.params.id).then(e=>{
-            if(e.data.success){
-                document.querySelector('#errors').classList.remove('hidden')
-            }
-        })
-    }
 
     useEffect(()=>{
-        checkVoter()
+ 
         Axios.get('/voting/vote/' + props.match.params.id,{
         }).then(e =>{
             if(!e.data.success) return props.history.push('/error')
@@ -76,8 +69,6 @@ function VotingPage(props) {
         }).then(e =>{
             if(e.data.success === true){
                 document.querySelector('#successVote').classList.remove('hidden')
-            }else{
-                checkVoter()
             }
         })
     }
