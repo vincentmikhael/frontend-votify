@@ -1,1 +1,1 @@
-export const base_url = 'http://votify.netlify.app'
+export const base_url = ''
